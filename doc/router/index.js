@@ -5,6 +5,7 @@ import Loading from '../views/content/Loading.md'
 import Toast from '../views/content/Toast.md'
 import XaxisScroll from '../views/content/XaxisScroll.md'
 import YaxisScroll from '../views/content/YaxisScroll.md'
+import Test from '../views/content/Test.md'
 
 export const routes = [
   {
@@ -45,6 +46,11 @@ export const routes = [
     name: 'YaxisScroll',
     path: '/YaxisScroll',
     component: YaxisScroll
+  },
+  {
+    name: 'Test',
+    path: '/Test',
+    component: Test
   },
   
 ]
