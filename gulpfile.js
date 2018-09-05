@@ -79,7 +79,7 @@ gulp.task('dealcss', function(){
  */
 gulp.task('del', function(done){
   del([
-    'lib/*'
+    'publish/component-ui/lib/*'
   ], done())
 })
 
