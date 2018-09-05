@@ -1,1 +1,0 @@
-export { default } from './src/Test.vue'
