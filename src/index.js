@@ -3,7 +3,6 @@ import Loading from '../packages/loading'
 import Toast from '../packages/toast'
 import XaxisScroll from '../packages/xaxis-scroll'
 import YaxisScroll from '../packages/yaxis-scroll'
-import Douchi from '../packages/douchi'
    
 const install = function(Vue, options = {}){
   if (install.installed) return
@@ -11,7 +10,6 @@ const install = function(Vue, options = {}){
   Vue.component(Loading.name, Loading)
   Vue.component(XaxisScroll.name, XaxisScroll)
   Vue.component(YaxisScroll.name, YaxisScroll)
-  Vue.component(Douchi.name, Douchi)
   Vue.$toast = Vue.prototype.$toast = Toast
 }
     
@@ -25,6 +23,5 @@ module.exports = {
   Loading,
   Toast,
   XaxisScroll,
-  YaxisScroll,
-  Douchi
+  YaxisScroll
 }

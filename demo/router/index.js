@@ -7,7 +7,6 @@ import Loading from '../views/Loading.vue'
 import Toast from '../views/Toast.vue'
 import XaxisScroll from '../views/XaxisScroll.vue'
 import YaxisScroll from '../views/YaxisScroll.vue'
-import Douchi from '../views/Douchi.vue'
 
 Vue.use(Router)
 
@@ -50,11 +49,6 @@ let routes = [
     name: 'YaxisScroll',
     path: '/YaxisScroll',
     component: YaxisScroll
-  },
-  {
-    name: 'Douchi',
-    path: '/Douchi',
-    component: Douchi
   },
   
 ]

@@ -1,9 +1,10 @@
 'use strict'
 const path = require('path')
+const { getLocalIp } = require('./utils')
 
 module.exports = {
   demo_dev: {
-    host: '0.0.0.0', // can be overwritten by process.env.HOST
+    host: getLocalIp(), // can be overwritten by process.env.HOST
     entry: path.join(__dirname, '../demo/main.js'),
     output: path.join(__dirname, '../demo/dist/demo'),
     template: path.join(__dirname, '../demo/index.html'),
@@ -25,7 +26,7 @@ module.exports = {
     assetsSubDirectory: 'static',
   },
   doc_dev: {
-    host: '0.0.0.0', // can be overwritten by process.env.HOST
+    host: getLocalIp(), // can be overwritten by process.env.HOST
     entry: path.join(__dirname, '../doc/main.js'),
     output: path.join(__dirname, '../dist/doc/demo'),
     template: path.join(__dirname, '../doc/index.html'),
