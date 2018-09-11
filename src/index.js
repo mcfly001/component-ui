@@ -1,4 +1,4 @@
-import ElButton from '../packages/button'
+import ElButton from '../packages/el-button'
 
 const install = function(Vue, options = {}){
   if (install.installed) return
@@ -11,5 +11,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 module.exports = {
   install,
-  ElButton
+  ElButton,
+
 }

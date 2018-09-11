@@ -34,7 +34,7 @@ module.exports = {
     let str = `${importstr}   
 const install = function(Vue, options = {}){
   if (install.installed) return
-${componentstr}  Vue.$toast = Vue.prototype.$toast = Toast
+${componentstr}  
 }
     
 if (typeof window !== 'undefined' && window.Vue) {
