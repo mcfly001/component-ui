@@ -14,24 +14,6 @@ const docPath = path.join(__dirname, '../doc')
 const demoPath = path.join(__dirname, '../demo')
 const tranformPackageName = tranformStr(packageName)
 
-const templateJs = `export { default } from './src/${tranformPackageName}.vue'`
-const templateVue = `
-<template>
-
-</template>
-
-<script>
-export default {
-  name: '${tranformPackageName}',
-  data(){
-    return {
-      
-    }
-  }
-}
-</script>
-`
-
 // 读取packages下面的所有组件名称
 fs.readdir(packagesPath, function (err, files) {
   if(err) {throw err}

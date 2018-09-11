@@ -4,6 +4,11 @@ const md = require('markdown-it')()
 const slugify = require('transliteration').slugify
 const striptags = require('./strip-tags')
 
+/**
+ * 由于cheerio在转换汉字时会出现转为Unicode的情况,所以我们编写convert方法来保证最终转码正确
+ * @param  {[String]} str e.g  &#x6210;&#x529F;
+ * @return {[String]}     e.g  成功
+ */
 function convert(str) {
   str = str.replace(/(&#x)(\w{4});/gi, function ($0) {
     return String.fromCharCode(parseInt(encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, '$2'), 16));
@@ -11,6 +16,12 @@ function convert(str) {
   return str;
 }
 
+/**
+ * 由于v-pre会导致在加载时直接按内容生成页面.但是我们想要的是直接展示组件效果,通过正则进行替换
+ * hljs是highlight.js中的高亮样式类名
+ * @param  {[type]} render e.g '<code v-pre class="test"></code>' | '<code></code>'
+ * @return {[type]}        e.g '<code class="hljs test></code>'   | '<code class="hljs></code>'
+ */
 function wrap(render) {
   return function () {
     return render.apply(this, arguments)

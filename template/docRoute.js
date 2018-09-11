@@ -1,4 +1,4 @@
-//拼装demo/router目录下的index.js文件
+//拼装doc/router目录下的index.js文件
 const fs = require('fs')
 const path = require('path')
 const docRouterPath = path.join(__dirname, '../doc/router')
@@ -10,7 +10,7 @@ module.exports = {
     let importstr = ''
     let routesstr = ''
     files.forEach(function(item){
-      if(item !== 'components' && item.indexOf('.') < 0){
+      if(item !== 'theme-chalk' && item.indexOf('.') < 0){
         importstr += `import ${tranformStr(item)} from '../views/content/${tranformStr(item)}.md'` + '\n'
         routesstr += `{
     name: '${tranformStr(item)}',

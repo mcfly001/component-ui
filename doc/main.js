@@ -3,13 +3,13 @@ import App from './App'
 import Router from 'vue-router'
 import { routes } from './router'
 import demoBlock from './components/demo-block.vue'
-import FireUi from 'src/index.js'
+import FirePcComponentUi from 'src/index.js'
 import 'highlight.js/styles/color-brewer.css'
 import './scss/index.scss'
-import './theme-chalk/src/index.scss';
+import '../packages/theme-chalk/src/index.scss'
 
 Vue.use(Router)
-Vue.use(FireUi)
+Vue.use(FirePcComponentUi)
 Vue.component('demo-block', demoBlock)
 Vue.config.productionTip = false
 

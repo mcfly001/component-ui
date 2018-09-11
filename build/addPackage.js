@@ -9,10 +9,17 @@ const colors = require( "colors")
 const packageName = process.argv.splice(2)[0]
 const packagesPath = path.join(__dirname, '../packages')
 const docPath = path.join(__dirname, '../doc')
-const demoPath = path.join(__dirname, '../demo')
 const tranformPackageName = tranformStr(packageName)
 
-const templateJs = `export { default } from './src/${tranformPackageName}.vue'`
+const templateJs = `import ${tranformPackageName} from './src/${tranformPackageName}'
+
+${tranformPackageName}.install = function(Vue) {
+  Vue.component(ElButton.name, ${tranformPackageName})
+}
+
+export default ${tranformPackageName}`
+
+
 const templateVue = `<template>
 
 </template>
@@ -41,9 +48,6 @@ fs.readdir(packagesPath, function (err, files) {
 
     // 在doc/views/content目录下生成文档
     fs.writeFileSync(`${docPath}/views/content/${tranformPackageName}.md`, '请在这里输入组件文档内容')
-
-    // 在demo/views下面生成案例组件
-    fs.writeFileSync(`${demoPath}/views/${tranformPackageName}.vue`, templateVue)
 
     files.push(packageName)
     packageIndexJs(files)

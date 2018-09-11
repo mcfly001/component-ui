@@ -12,7 +12,7 @@ module.exports = {
     let modulestr = ''
 
     files.forEach(function(item, index){
-      if(item !== 'components' && item.indexOf('.') < 0){
+      if(item !== 'theme-chalk' && item.indexOf('.') < 0){
 
         if(index + 1 === files.length){
           modulestr += `  ${tranformStr(item)}`
