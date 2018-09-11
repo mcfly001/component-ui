@@ -5,7 +5,6 @@ const fs = require('fs')
 const path = require('path')
 const { tranformStr } = require('../template/units')
 const { packageIndexJs } = require('../template/srcIndex')
-const { demoRouterIndexJs } = require('../template/demoRoute')
 const { docRouterIndexJs } = require('../template/docRoute')
 const colors = require( "colors")
 // 获取要打包的包名称
@@ -49,7 +48,6 @@ fs.readdir(packagesPath, function (err, files) {
     })
 
     packageIndexJs(arr)
-    demoRouterIndexJs(arr)
     docRouterIndexJs(arr)
   }
   else{

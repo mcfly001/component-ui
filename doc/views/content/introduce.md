@@ -1,73 +1,53 @@
-#### 使用指南
+<style>
+  .demo-box.demo-button {
+    .el-row {
+      margin-bottom: 20px;
 
-##### 安装
-``` javascript
-npm install @2dfire/component-ui --save-dev
-```
-
-##### 引入组件
-- 方式一(推荐)： 使用  [babel-plugin-component](https://www.npmjs.com/package/babel-plugin-component)
-``` javascript
-// 安装babel-plugin-component
-npm install babel-plugin-component --save-dev
-```
-``` javascript
-// 在.babelrc 下面添加插件配置
-{
-    plugin: [
-        xxx,
-        [
-            "component", {
-                "libraryName": "@2dfire/component-ui",
-                "style": true,
-            },
-            "@2dfire/component-ui"
-        ]
-    ]
-}
-```
-
-接下来你可以在代码中引入组件了， 插件会实现按需加载了
-``` javascript
-import { CellSwipe } from '@2dfire/component-ui'
-import '@2dfire/component-ui/lib/index.css'
-
-// 全局注册（在main.js中注册）
-Vue.component(CellSwipe.name, CellSwipe)
-
-// 在需要使用的组件内引用
-export default{
-    name: 'xx',
-    components: {
-        CellSwipe
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
-}
+    .el-button + .el-button {
+      margin-left: 10px;
+    }
+    .el-button-group {
+      .el-button + .el-button {
+        margin-left: 0;
+      }
 
+      & + .el-button-group {
+        margin-left: 10px;
+      }
+    }
+  }
+</style>
+
+## Button 按钮
+常用的操作按钮。
+
+### 基础用法
+
+基础的按钮用法。
+
+:::demo 使用`type`、`plain`、`round`和`circle`属性来定义 Button 的样式。
+
+```html
+<div>
+  <el-button>默认按钮</el-button>
+</div>
 ```
+:::
 
-- 方式二： 导入所有组件(该方式不允许使用babel-plugin-component)
-``` javascript
-// 在main.js中引入插件
-import Vue from 'vue'
-import * as mobileUi from '@2dire/component-ui'
-import '@2dfire/component-ui/dist/index.css'
-
-Vue.use(mobileUi)
-```
-
-##
-**⚠️最终打包的css单位为px，如果要转换成rem，需要在对应工程中去配置postcss-pxtorem，此外注意在webpack的test: /\.css$/中不要去忽略node_module,postcss-pxtorem简单配置如下**
-
-``` javascript
-postcss: [
-      require('postcss-pxtorem')({
-        rootValue: 37.5,
-        unitPrecision: 5, // 转换成rem后的小数点位数
-        propList: ['*', '!font-size'], // 需要转换的css属性列表
-        minPixelValue: 1.1, // 设置一个最小值，小于这个值就不会被转换为rem
-      }),
-      require('autoprefixer')({
-        browsers: ['last 2 versions', 'Android > 4', 'iOS > 6', 'Safari > 6']
-      })
-    ]
-```
+### Attributes
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| size     | 尺寸   | string  |   medium / small / mini            |    —     |
+| type     | 类型   | string    |   primary / success / warning / danger / info / text |     —    |
+| plain     | 是否朴素按钮   | boolean    | — | false   |
+| round     | 是否圆角按钮   | boolean    | — | false   |
+| circle     | 是否圆形按钮   | boolean    | — | false   |
+| loading     | 是否加载中状态   | boolean    | — | false   |
+| disabled  | 是否禁用状态    | boolean   | —   | false   |
+| icon  | 图标类名 | string   |  —  |  —  |
+| autofocus  | 是否默认聚焦 | boolean   |  —  |  false  |
+| native-type | 原生 type 属性 | string | button / submit / reset | button |
