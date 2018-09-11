@@ -52,7 +52,7 @@ export default {
     flex: 1;
     text-align: left;
     height: 100%;
-    padding-right: 400px;
+    padding-right:200px;
     overflow-y: auto;
   }
 </style>

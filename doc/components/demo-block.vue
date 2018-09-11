@@ -22,23 +22,11 @@
       <transition name="text-slide">
         <span v-show="hovering">{{ controlText }}</span>
       </transition>
-      <!--<el-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">-->
-        <!--<transition name="text-slide">-->
-          <!--<el-button-->
-            <!--v-show="hovering || isExpanded"-->
-            <!--size="small"-->
-            <!--type="text"-->
-            <!--class="control-button"-->
-            <!--@click.stop="goJsfiddle">-->
-            <!--{{ langConfig['button-text'] }}-->
-          <!--</el-button>-->
-        <!--</transition>-->
-      <!--</el-tooltip>-->
     </div>
   </div>
 </template>
 
-<style type="text/scss">
+<style type="text/scss" lang="scss" scoped>
   .demo-block {
     border: solid 1px #ebebeb;
     border-radius: 3px;
@@ -108,6 +96,9 @@
         border: none;
         max-height: none;
         border-radius: 0;
+        font-size: 12px;
+        line-height: 1.8;
+        padding-left: 20px;
 
         &::before {
           content: none;
@@ -116,6 +107,8 @@
     }
 
     .demo-block-control {
+      display: flex;
+      justify-content: center;
       border-top: solid 1px #eaeefb;
       height: 44px;
       box-sizing: border-box;
@@ -195,43 +188,6 @@
     },
 
     methods: {
-      goJsfiddle() {
-        const {script, html, style} = this.jsfiddle;
-        const resourcesTpl = '<scr' + 'ipt src="//unpkg.com/vue/dist/vue.js"></scr' + 'ipt>' +
-          '\n<scr' + `ipt src="//unpkg.com/element-ui@${ 2.0 }/lib/index.js"></scr` + 'ipt>';
-        let jsTpl = (script || '').replace(/export default/, 'var Main =').trim();
-        let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`;
-        let cssTpl = `@import url("//unpkg.com/element-ui@${ 2.0 }/lib/theme-chalk/index.css");\n${(style || '').trim()}\n`;
-        jsTpl = jsTpl
-          ? jsTpl + '\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount(\'#app\')'
-          : 'new Vue().$mount(\'#app\')';
-        const data = {
-          js: jsTpl,
-          css: cssTpl,
-          html: htmlTpl,
-          panel_js: 3,
-          panel_css: 1
-        };
-        const form = document.getElementById('fiddle-form') || document.createElement('form');
-        form.innerHTML = '';
-        const node = document.createElement('textarea');
-
-        form.method = 'post';
-        form.action = 'https://jsfiddle.net/api/post/library/pure/';
-        form.target = '_blank';
-
-        for (let name in data) {
-          node.name = name;
-          node.value = data[name].toString();
-          form.appendChild(node.cloneNode());
-        }
-        form.setAttribute('id', 'fiddle-form');
-        form.style.display = 'none';
-        document.body.appendChild(form);
-
-        form.submit();
-      },
-
       scrollHandler() {
         const {top, bottom, left} = this.$refs.meta.getBoundingClientRect();
         this.fixedControl = bottom > document.documentElement.clientHeight &&
