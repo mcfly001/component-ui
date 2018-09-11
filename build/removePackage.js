@@ -19,7 +19,7 @@ fs.readdir(packagesPath, function (err, files) {
   if(err) {throw err}
   if(files.includes(packageName)){
     // 在packages目录下面删除包
-    rm('-rf', `${packagesPath}/${packageName}`)
+    rm('-rf', `${packagesPath}/${tranformPackageName}`)
     // 在doc/views/content目录下删除文档
     rm('-rf', `${docPath}/views/content/${tranformPackageName}.md`)
     // 在demo/views下面生成案例组件

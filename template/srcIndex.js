@@ -21,11 +21,9 @@ module.exports = {
           modulestr += `  ${tranformStr(item)},` + '\n'
         }
 
-        importstr += `import ${tranformStr(item)} from '../packages/${item}'
-`
+        importstr += `import ${tranformStr(item)} from '../packages/${item}'\n`
         if(item !== 'toast'){
-          componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})
-`
+          componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})\n`
         }
       }
     })
@@ -44,8 +42,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 module.exports = {
   install,
 ${modulestr}
-}
-`
+}`
     fs.unlinkSync(srcPath + '/index.js')
     fs.writeFile(srcPath + '/index.js', str, 'utf8', function () {
       console.log('src/index.js修改成功'.green)
