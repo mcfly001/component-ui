@@ -1,4 +1,4 @@
-import ElButton from '../packages/el-button'
+import ElButton from '../packages/ElButton'
 
 const install = function(Vue, options = {}){
   if (install.installed) return

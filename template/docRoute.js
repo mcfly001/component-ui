@@ -26,6 +26,10 @@ import Develop from '../views/content/Develop.md'
 ${importstr}
 export const routes = [
   {
+    path: '/',
+    redirect: '/Introduce'
+  },
+  {
     path: '/Introduce',
     name: 'Introduce',
     component: Introduce
@@ -34,10 +38,6 @@ export const routes = [
     path: '/Develop',
     name: 'Develop',
     component: Develop
-  },
-  {
-    path: '/',
-    redirect: '/Introduce'
   },
   ${routesstr}
 ]

@@ -4,6 +4,10 @@ import ElButton from '../views/content/ElButton.md'
 
 export const routes = [
   {
+    path: '/',
+    redirect: '/Introduce'
+  },
+  {
     path: '/Introduce',
     name: 'Introduce',
     component: Introduce
@@ -14,13 +18,9 @@ export const routes = [
     component: Develop
   },
   {
-    path: '/',
-    redirect: '/Introduce'
-  },
-  {
     name: 'ElButton',
     path: '/ElButton',
     component: ElButton
   },
-  
+
 ]
