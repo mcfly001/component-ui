@@ -19,7 +19,7 @@ module.exports = {
             modulestr += `  ${tranformStr(item)}`
             componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})`
           }
-          importstr += `import ${tranformStr(item)} from '../packages/${item}`
+          importstr += `import ${tranformStr(item)} from '../packages/${item}'`
         }
         else{
           if(item !== 'toast'){
