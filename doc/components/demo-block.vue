@@ -6,7 +6,7 @@
     @mouseleave="hovering = false">
     <slot name="source"></slot>
     <div class="meta" ref="meta">
-      <div class="description" v-if="$slots.default">
+      <div class="description" v-if="$slots.default">　
         <slot></slot>
       </div>
       <slot name="highlight"></slot>
