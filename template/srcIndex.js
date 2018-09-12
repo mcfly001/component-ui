@@ -18,14 +18,14 @@ module.exports = {
           if(item !== 'toast'){
             modulestr += `  ${tranformStr(item)}`
             componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})`
-            importstr += `import ${tranformStr(item)} from '../packages/${item}'`
+            importstr += `import ${tranformStr(item)} from '../packages/${tranformStr(item)}'`
           }
         }
         else{
           if(item !== 'toast'){
             modulestr += `  ${tranformStr(item)},` + '\n'
             componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})\n`
-            importstr += `import ${tranformStr(item)} from '../packages/${item}'\n`
+            importstr += `import ${tranformStr(item)} from '../packages/${tranformStr(item)}'\n`
           }
         }
       }
