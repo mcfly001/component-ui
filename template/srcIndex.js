@@ -15,15 +15,18 @@ module.exports = {
       if(item !== 'theme-chalk' && item.indexOf('.') < 0){
 
         if(index + 1 === files.length){
-          modulestr += `  ${tranformStr(item)}`
+          if(item !== 'toast'){
+            modulestr += `  ${tranformStr(item)}`
+            componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})`
+          }
+          importstr += `import ${tranformStr(item)} from '../packages/${item}`
         }
         else{
-          modulestr += `  ${tranformStr(item)},` + '\n'
-        }
-
-        importstr += `import ${tranformStr(item)} from '../packages/${item}'\n`
-        if(item !== 'toast'){
-          componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})\n`
+          if(item !== 'toast'){
+            modulestr += `  ${tranformStr(item)},` + '\n'
+            componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})\n`
+          }
+          importstr += `import ${tranformStr(item)} from '../packages/${item}'\n`
         }
       }
     })
