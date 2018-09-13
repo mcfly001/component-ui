@@ -20,7 +20,6 @@ const templateVue = `<template>
 
 <script>
 export default {
-  name: '${tranformPackageName}',
   data(){
     return {
       
