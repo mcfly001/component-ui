@@ -1,7 +1,7 @@
 <template>
   <div class="header-wrapper">
     <div class="header_logo"></div>
-    <span>基础组件库</span>
+    <span>PC基础组件库</span>
     <a href="javascript:void(0)" @click="jumpToComponent" class="tocomponent">业务组件库</a>
   </div>
 </template>

@@ -1,12 +1,12 @@
 import Introduce from '../views/content/Introduce.md'
 import Develop from '../views/content/Develop.md'
-import CellSwipe from '../views/content/CellSwipe.md'
-import Loading from '../views/content/Loading.md'
-import Toast from '../views/content/Toast.md'
-import XaxisScroll from '../views/content/XaxisScroll.md'
-import YaxisScroll from '../views/content/YaxisScroll.md'
+import ElButton from '../views/content/ElButton.md'
 
 export const routes = [
+  {
+    path: '/',
+    redirect: '/Introduce'
+  },
   {
     path: '/Introduce',
     name: 'Introduce',
@@ -18,33 +18,9 @@ export const routes = [
     component: Develop
   },
   {
-    path: '/',
-    redirect: '/Introduce'
-  },
-  {
-    name: 'CellSwipe',
-    path: '/CellSwipe',
-    component: CellSwipe
-  },
-  {
-    name: 'Loading',
-    path: '/Loading',
-    component: Loading
-  },
-  {
-    name: 'Toast',
-    path: '/Toast',
-    component: Toast
-  },
-  {
-    name: 'XaxisScroll',
-    path: '/XaxisScroll',
-    component: XaxisScroll
-  },
-  {
-    name: 'YaxisScroll',
-    path: '/YaxisScroll',
-    component: YaxisScroll
+    name: 'ElButton',
+    path: '/ElButton',
+    component: ElButton
   },
   
 ]

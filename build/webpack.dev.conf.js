@@ -45,7 +45,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     host: HOST || config[env].host,
     port: PORT || config[env].port,
     open: true,
-    overlay: config.demo_dev.errorOverlay
+    overlay: config[env].errorOverlay
       ? { warnings: false, errors: true }
       : false,
     publicPath: '/',

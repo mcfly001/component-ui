@@ -12,20 +12,21 @@ module.exports = {
     let modulestr = ''
 
     files.forEach(function(item, index){
-      if(item !== 'components' && item.indexOf('.') < 0){
+      if(item !== 'theme-chalk' && item.indexOf('.') < 0){
 
         if(index + 1 === files.length){
-          modulestr += `  ${tranformStr(item)}`
+          if(item !== 'toast'){
+            modulestr += `  ${tranformStr(item)}`
+            componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})`
+            importstr += `import ${tranformStr(item)} from '../packages/${tranformStr(item)}'`
+          }
         }
         else{
-          modulestr += `  ${tranformStr(item)},` + '\n'
-        }
-
-        importstr += `import ${tranformStr(item)} from '../packages/${item}'
-`
-        if(item !== 'toast'){
-          componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})
-`
+          if(item !== 'toast'){
+            modulestr += `  ${tranformStr(item)},` + '\n'
+            componentstr += `  Vue.component(${tranformStr(item)}.name, ${tranformStr(item)})\n`
+            importstr += `import ${tranformStr(item)} from '../packages/${tranformStr(item)}'\n`
+          }
         }
       }
     })
@@ -34,7 +35,7 @@ module.exports = {
     let str = `${importstr}   
 const install = function(Vue, options = {}){
   if (install.installed) return
-${componentstr}  Vue.$toast = Vue.prototype.$toast = Toast
+${componentstr}  
 }
     
 if (typeof window !== 'undefined' && window.Vue) {
@@ -44,8 +45,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 module.exports = {
   install,
 ${modulestr}
-}
-`
+}`
     fs.unlinkSync(srcPath + '/index.js')
     fs.writeFile(srcPath + '/index.js', str, 'utf8', function () {
       console.log('src/index.js修改成功'.green)

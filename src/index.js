@@ -1,16 +1,9 @@
-import CellSwipe from '../packages/cell-swipe'
-import Loading from '../packages/loading'
-import Toast from '../packages/toast'
-import XaxisScroll from '../packages/xaxis-scroll'
-import YaxisScroll from '../packages/yaxis-scroll'
+import ElButton from '../packages/ElButton'
    
 const install = function(Vue, options = {}){
   if (install.installed) return
-  Vue.component(CellSwipe.name, CellSwipe)
-  Vue.component(Loading.name, Loading)
-  Vue.component(XaxisScroll.name, XaxisScroll)
-  Vue.component(YaxisScroll.name, YaxisScroll)
-  Vue.$toast = Vue.prototype.$toast = Toast
+  Vue.component(ElButton.name, ElButton)
+  
 }
     
 if (typeof window !== 'undefined' && window.Vue) {
@@ -19,9 +12,6 @@ if (typeof window !== 'undefined' && window.Vue) {
     
 module.exports = {
   install,
-  CellSwipe,
-  Loading,
-  Toast,
-  XaxisScroll,
-  YaxisScroll
+  ElButton,
+
 }

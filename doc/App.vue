@@ -6,9 +6,6 @@
       <div class="content-wrapper">
         <router-view />
       </div>
-      <div class="iframe-case">
-        <iframe :src="src" frameborder="0"></iframe>
-      </div>
     </div>
   </div>
 </template>
@@ -17,19 +14,10 @@
 import TopHeader from './views/header/index.vue'
 import LeftNav from './views/leftnav/index.vue'
 import urlConfig from 'urlConfig'
-
 import url from 'url'
+
 export default {
   name: 'App',
-  data(){
-    return {
-      src: ''
-    }
-  },
-  mounted(){
-    let path = url.parse(location.href).hash.replace('#', '')
-    this.src = urlConfig.IFRAME_URL + path
-  },
   methods: {
     changeNav(src){
       this.src = urlConfig.IFRAME_URL + src
@@ -64,30 +52,7 @@ export default {
     flex: 1;
     text-align: left;
     height: 100%;
-    padding-right: 400px;
+    padding-right:200px;
     overflow-y: auto;
-  }
-
-  .iframe-case{
-    position: absolute;
-    right: 20px;
-    top: 80px;
-    width: 333px;
-    height: 667px;
-    background-image: url(./images/phone.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    padding: 100px 15px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  iframe{
-    width: 273px;
-    height: 100%;
-    margin: 0 15px;
-    border: none;
-    background: white;
   }
 </style>

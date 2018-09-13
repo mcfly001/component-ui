@@ -37,12 +37,10 @@ export default {
   },
   methods: {
     changeNav(path){
-      console.log(path)
       this.currentPath = path
       this.$emit('change-nav', path)
     }
-  },
-  components: {}
+  }
 }
 </script>
 
