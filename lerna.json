@@ -1,0 +1,13 @@
+{
+  "packages": [
+    "publish/*"
+  ],
+  "version": "0.0.5",
+  "command": {
+    "publish": {
+      "allowBranch": [
+        "douchi"
+      ]
+    }
+  }
+}
