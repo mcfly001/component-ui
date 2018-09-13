@@ -15,15 +15,19 @@ const tranformPackageName = tranformStr(packageName)
 
 const templateJs = `export { default } from './src/${tranformPackageName}.vue'`
 const templateVue = `<template>
-
+ <${packageName}></${packageName}>
 </template>
 
 <script>
+import ${tranformPackageName} from 'packages/${tranformPackageName}'
 export default {
   data(){
     return {
       
     }
+  },
+  components: {
+    ${tranformPackageName}
   }
 }
 </script>
