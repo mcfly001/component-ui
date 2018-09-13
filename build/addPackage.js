@@ -15,6 +15,25 @@ const tranformPackageName = tranformStr(packageName)
 
 const templateJs = `export { default } from './src/${tranformPackageName}.vue'`
 const templateVue = `<template>
+ <${packageName}></${packageName}>
+</template>
+
+<script>
+import ${tranformPackageName} from 'packages/${tranformPackageName}'
+export default {
+  data(){
+    return {
+      
+    }
+  },
+  components: {
+    ${tranformPackageName}
+  }
+}
+</script>
+`
+
+const templateVue2 = `<template>
 
 </template>
 
@@ -38,7 +57,7 @@ fs.readdir(packagesPath, function (err, files) {
     fs.mkdirSync(`${packagesPath}/${tranformPackageName}`, '0777')
     fs.mkdirSync(`${packagesPath}/${tranformPackageName}/src`, '0777')
     fs.writeFileSync(`${packagesPath}/${tranformPackageName}/index.js`, templateJs)
-    fs.writeFileSync(`${packagesPath}/${tranformPackageName}/src/${tranformPackageName}.vue`, templateVue)
+    fs.writeFileSync(`${packagesPath}/${tranformPackageName}/src/${tranformPackageName}.vue`, templateVue2)
 
     // 在doc/views/content目录下生成文档
     fs.writeFileSync(`${docPath}/views/content/${tranformPackageName}.md`, '请在这里输入组件文档内容')
