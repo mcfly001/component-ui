@@ -11,6 +11,7 @@ const colors = require( "colors")
 // 获取要打包的包名称
 const packageName = process.argv.splice(2)[0]
 const packagesPath = path.join(__dirname, '../packages')
+const publishPath = path.join(__dirname, '../publish')
 const docPath = path.join(__dirname, '../doc')
 const demoPath = path.join(__dirname, '../demo')
 const tranformPackageName = tranformStr(packageName)
@@ -37,6 +38,8 @@ export default {
 fs.readdir(packagesPath, function (err, files) {
   if(err) {throw err}
   if(files.includes(packageName)){
+    // 在publish目录下面删除包
+    rm('-rf', `${publishPath}/component-ui/lib/${packageName}`)
     // 在packages目录下面删除包
     rm('-rf', `${packagesPath}/${packageName}`)
     // 在doc/views/content目录下删除文档
