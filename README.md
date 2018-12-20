@@ -59,5 +59,3 @@ npm run publish
 // 执行单元测试,打开test/unit/coverage/Icov-report/index.html，会看到测试结果
 npm run test
 ```
-
-
