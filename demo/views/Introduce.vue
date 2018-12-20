@@ -9,15 +9,7 @@ export default {
   name: '',
   data() {
     return {}
-  },
-  created(){
-
-  },
-  mounted() {
-
-  },
-  methods: {},
-  components: {}
+  }
 }
 </script>
 
