@@ -47,6 +47,9 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^2.0.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-static": "^5.0.0",
+    "koa2": "^2.0.0-alpha.7",
     "lerna": "^3.2.1",
     "mini-css-extract-plugin": "^0.4.2",
     "mocha": "^3.2.0",
@@ -84,6 +87,7 @@
     "webpackbuild": "cross-env NODE_ENV=all_build node build/build.js --mode production",
     "gulpbuild": "gulp build",
     "build": "npm run webpackbuild && npm run gulpbuild",
+    "build:md": "npm run demo_build && npm run doc_build",
     "add": "node build/addPackage.js",
     "remove": "node build/removePackage.js",
     "publish": "lerna publish"

@@ -50,7 +50,7 @@ module.exports = {
   doc_build: {
     entry: path.join(__dirname, '../doc/main.js'),
     // path
-    output: path.resolve(__dirname, '../doc/dist/doc'),
+    output: path.resolve(__dirname, '../app/public/component-ui/doc'),
     template: path.join(__dirname, '../doc/index.html'),
     assetsPublicPath: '/',
     extract: true,
@@ -64,7 +64,7 @@ module.exports = {
   demo_build: {
     entry: path.join(__dirname, '../demo/main.js'),
     // path
-    output: path.resolve(__dirname, '../demo/dist/demo'),
+    output: path.resolve(__dirname, '../app/public/component-ui/demo'),
     template: path.join(__dirname, '../demo/index.html'),
     assetsPublicPath: '/',
     extract: true,
