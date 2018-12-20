@@ -79,7 +79,7 @@
     "demo_dev": "cross-env NODE_ENV=demo_dev webpack-dev-server --mode development --inline --progress --config build/webpack.dev.conf.js",
     "doc_build": "cross-env NODE_ENV=doc_build node build/build.js --mode production",
     "demo_build": "cross-env NODE_ENV=demo_build node build/build.js --mode production",
-    "dev": "node build/dev.js",
+    "dev": "npm run doc_dev & npm run demo_dev",
     "single": "npm run webpackbuild && cross-env NODE_ENV=single node build/single_build.js",
     "webpackbuild": "cross-env NODE_ENV=all_build node build/build.js --mode production",
     "gulpbuild": "gulp build",
